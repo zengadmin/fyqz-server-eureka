@@ -28,7 +28,16 @@ eureka:
     fetch-registry: false # 获取注册列表
     register-with-eureka: false # 是否将自己也注册到其他eureka节点上。一般设置为true或者默认即可，这样才会在eureka控制台上看到所有的eureka集群列表信息
 
-
+management:
+  security:
+    enabled: false # 关闭安全验证（或者设置用户名和密码）。客户端访问一些接口的时候，才不会出现：401 Unauthorized权限的错误 ——
+  endpoints:
+    web:
+      exposure:
+        include: "*"   #暴露所有的端点我们可以看到更多的服务实例相关信息，
+  endpoint:
+    health:
+      show-details: ALWAYS   #health endpoint是否必须显示全部细节
 
 # 注意下面是三个横杠：在单一文件中，可用连续三个连字号（---）区分多个文件（节省多个yml文件的配置，在一个yml文件中就可配置）。
 ---
@@ -50,8 +59,8 @@ spring:
         password: 123456
   security:
     user:
-      name: root
-      password: root
+      name: fyqz
+      password: 123456
 
 eureka:
   instance:
