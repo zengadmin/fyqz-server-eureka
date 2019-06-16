@@ -27,6 +27,10 @@ eureka:
       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@slave1:18761/eureka # eureka服务器的地址
     fetch-registry: false # 获取注册列表
     register-with-eureka: false # 是否将自己也注册到其他eureka节点上。一般设置为true或者默认即可，这样才会在eureka控制台上看到所有的eureka集群列表信息
+  server:  #配置属性，但由于 Eureka 自我保护模式以及心跳周期长的原因，经常会遇到 Eureka Server 不剔除已关停的节点的问题
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+ #### 清理间隔（单位毫秒，默认是60*1000），开发环境设置如下可快速移除不可用的服务
 
 management:
   security:
@@ -70,6 +74,10 @@ eureka:
       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@slave1:28761/eureka # eureka服务器的地址
     fetch-registry: false # 获取注册列表
     register-with-eureka: false # 是否将自己也注册到其他eureka节点上。一般设置为true或者默认即可，这样才会在eureka控制台上看到所有的eureka集群列表信息
+  server:  #配置属性，但由于 Eureka 自我保护模式以及心跳周期长的原因，经常会遇到 Eureka Server 不剔除已关停的节点的问题
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+ #### 清理间隔（单位毫秒，默认是60*1000），开发环境设置如下可快速移除不可用的服务
 
 management:
   security:
